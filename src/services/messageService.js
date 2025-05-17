@@ -5,7 +5,7 @@
 
 const Message = require('../models/Message');
 const Project = require('../models/Project');
-const { getIO } = require('../websockets/socket');
+const { getIO } = require('../webSockets/socket');
 
 /**
  * Servicio para manejar mensajes entre usuarios
