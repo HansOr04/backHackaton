@@ -20,14 +20,19 @@ exports.success = (res, data, statusCode = 200) => {
 /**
  * Formatea una respuesta de error
  * @param {Object} res - Objeto de respuesta de Express
- * @param {string} message - Mensaje de error
+ * @param {string|Object} message - Mensaje o datos de error
  * @param {number} statusCode - Código de estado HTTP (default: 400)
  * @returns {Object} - Respuesta HTTP formateada
  */
 exports.error = (res, message, statusCode = 400) => {
+  // Determinar formato del error
+  const errorData = typeof message === 'string' 
+    ? { message } 
+    : message;
+  
   return res.status(statusCode).json({
     success: false,
-    error: message
+    error: errorData
   });
 };
 
@@ -38,10 +43,11 @@ exports.error = (res, message, statusCode = 400) => {
  * @param {number} page - Página actual
  * @param {number} limit - Límite de elementos por página
  * @param {number} total - Total de elementos
+ * @param {Object} meta - Metadatos adicionales (opcional)
  * @param {number} statusCode - Código de estado HTTP (default: 200)
  * @returns {Object} - Respuesta HTTP formateada con metadatos de paginación
  */
-exports.paginated = (res, data, page, limit, total, statusCode = 200) => {
+exports.paginated = (res, data, page, limit, total, meta = {}, statusCode = 200) => {
   return res.status(statusCode).json({
     success: true,
     data,
@@ -50,6 +56,31 @@ exports.paginated = (res, data, page, limit, total, statusCode = 200) => {
       limit,
       total,
       pages: Math.ceil(total / limit)
-    }
+    },
+    meta
   });
+};
+
+/**
+ * Formatea una respuesta de creación
+ * @param {Object} res - Objeto de respuesta de Express
+ * @param {*} data - Datos a enviar en la respuesta
+ * @param {string} resourceType - Tipo de recurso creado
+ * @returns {Object} - Respuesta HTTP formateada
+ */
+exports.created = (res, data, resourceType = 'resource') => {
+  return res.status(201).json({
+    success: true,
+    message: `${resourceType} created successfully`,
+    data
+  });
+};
+
+/**
+ * Formatea una respuesta para operaciones sin contenido
+ * @param {Object} res - Objeto de respuesta de Express
+ * @returns {Object} - Respuesta HTTP formateada
+ */
+exports.noContent = (res) => {
+  return res.status(204).end();
 };

@@ -1,70 +1,91 @@
 /**
  * worldWalletAuthMiddleware.js
- * Middleware para validar la autenticación con World Wallet
+ * Middleware para autenticación con World Wallet
  */
 
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const jsonStore = require('../utils/jsonStore');
+const tokenConfig = require('../config/tokenConfig');
 const { error } = require('../utils/responseFormatter');
 
 /**
  * Middleware para proteger rutas que requieren autenticación
- * Verifica el token JWT y agrega la información del usuario al objeto de solicitud
+ * Verifica el token JWT y añade la información del usuario a req.user
  * @param {Object} req - Objeto de solicitud Express
  * @param {Object} res - Objeto de respuesta Express
  * @param {Function} next - Función next de Express
  */
 const authGuard = async (req, res, next) => {
   try {
-    // Obtener token de los headers
+    let token;
+    
+    // Obtener token del header Authorization
     const authHeader = req.headers.authorization;
-    
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return error(res, 'Se requiere autenticación', 401);
+    if (authHeader && authHeader.startsWith('Bearer ')) {
+      token = authHeader.split(' ')[1];
+    } 
+    // O de la cookie si está disponible
+    else if (req.cookies && req.cookies[tokenConfig.COOKIE_NAMES.AUTH_TOKEN]) {
+      token = req.cookies[tokenConfig.COOKIE_NAMES.AUTH_TOKEN];
     }
     
-    const token = authHeader.split(' ')[1];
-    
+    // Si no hay token, continuar pero sin usuario autenticado
+    // Esto permite que algunas rutas funcionen sin autenticación
     if (!token) {
-      return error(res, 'Token de autenticación no proporcionado', 401);
+      return next();
     }
     
-    try {
-      // Verificar token
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      
-      // Buscar usuario en la base de datos
-      const user = await User.findById(decoded.id);
-      
-      if (!user) {
-        return error(res, 'Usuario no encontrado', 404);
+    // Verificar el token
+    const decoded = tokenConfig.verifyToken(token);
+    
+    // Si el token es inválido o está expirado
+    if (!decoded) {
+      // Limpiar la cookie si existe
+      if (req.cookies && req.cookies[tokenConfig.COOKIE_NAMES.AUTH_TOKEN]) {
+        res.clearCookie(tokenConfig.COOKIE_NAMES.AUTH_TOKEN);
       }
-      
-      // Agregar información del usuario al objeto de solicitud
-      req.user = {
-        id: user._id,
-        walletAddress: user.walletAddress,
-        verificationLevel: user.verificationLevel
-      };
-      
-      // Continuar con la siguiente función middleware
-      next();
-    } catch (jwtError) {
-      // Manejar errores específicos de JWT
-      if (jwtError.name === 'TokenExpiredError') {
-        return error(res, 'Token expirado', 401);
-      }
-      
-      if (jwtError.name === 'JsonWebTokenError') {
-        return error(res, 'Token inválido', 401);
-      }
-      
-      throw jwtError;
+      return next(); // Continuar sin usuario autenticado
     }
+    
+    // Buscar usuario en el almacenamiento
+    const users = await jsonStore.find('users');
+    const user = users.find(u => u.id === decoded.id);
+    
+    // Si no se encuentra el usuario
+    if (!user) {
+      return next(); // Continuar sin usuario autenticado
+    }
+    
+    // Añadir información del usuario al objeto de solicitud
+    req.user = {
+      id: user.id,
+      walletAddress: user.walletAddress,
+      name: user.name,
+      verificationLevel: user.verificationLevel,
+      walletAuthorized: user.walletAuthorized
+    };
+    
+    // Continuar con la siguiente función middleware
+    next();
   } catch (err) {
     console.error('Auth middleware error:', err);
-    return error(res, 'Error de autenticación', 500);
+    next(); // Continuar sin usuario autenticado
   }
+};
+
+/**
+ * Middleware para rutas que requieren autenticación obligatoria
+ * Si el usuario no está autenticado, devuelve un error 401
+ * @param {Object} req - Objeto de solicitud Express
+ * @param {Object} res - Objeto de respuesta Express
+ * @param {Function} next - Función next de Express
+ */
+const requireAuth = (req, res, next) => {
+  // Asegurarse de que authGuard se ha ejecutado antes
+  if (!req.user) {
+    return error(res, 'Se requiere autenticación', 401);
+  }
+  
+  next();
 };
 
 /**
@@ -101,40 +122,27 @@ const requireVerificationLevel = (level) => {
 };
 
 /**
- * Middleware para verificar que el usuario autenticado es el propietario del recurso
- * @param {Function} getResourceUserId - Función para obtener el ID de usuario del recurso
- * @returns {Function} Middleware de Express
+ * Middleware para verificar que la wallet del usuario está autorizada
+ * @param {Object} req - Objeto de solicitud Express
+ * @param {Object} res - Objeto de respuesta Express
+ * @param {Function} next - Función next de Express
  */
-const isResourceOwner = (getResourceUserId) => {
-  return async (req, res, next) => {
-    try {
-      // Asegurarse de que authGuard se ha ejecutado antes
-      if (!req.user) {
-        return error(res, 'Se requiere autenticación', 401);
-      }
-      
-      // Obtener ID del propietario del recurso
-      const resourceUserId = await getResourceUserId(req);
-      
-      if (!resourceUserId) {
-        return error(res, 'Recurso no encontrado', 404);
-      }
-      
-      // Verificar si el usuario autenticado es el propietario
-      if (resourceUserId.toString() !== req.user.id.toString()) {
-        return error(res, 'No tienes permiso para acceder a este recurso', 403);
-      }
-      
-      next();
-    } catch (err) {
-      console.error('Resource owner check error:', err);
-      return error(res, 'Error al verificar permisos', 500);
-    }
-  };
+const requireWalletAuthorization = (req, res, next) => {
+  // Asegurarse de que authGuard se ha ejecutado antes
+  if (!req.user) {
+    return error(res, 'Se requiere autenticación', 401);
+  }
+  
+  if (!req.user.walletAuthorized) {
+    return error(res, 'Se requiere autorización de wallet', 403);
+  }
+  
+  next();
 };
 
 module.exports = {
   authGuard,
+  requireAuth,
   requireVerificationLevel,
-  isResourceOwner
+  requireWalletAuthorization
 };

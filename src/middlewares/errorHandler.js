@@ -17,47 +17,47 @@ const errorHandler = (err, req, res, next) => {
   // Imprimir el error en la consola para depuración
   console.error('Error:', err);
 
-  // Verificar si es un error de Mongoose/MongoDB
-  if (err.name === 'ValidationError') {
-    return error(res, formatValidationError(err), 400);
+  // Determinar el tipo de error y dar una respuesta apropiada
+  
+  // Error de validación (p.ej. de express-validator)
+  if (err.array && typeof err.array === 'function') {
+    const validationErrors = err.array().map(error => ({
+      field: error.param,
+      message: error.msg
+    }));
+    
+    return error(res, {
+      message: 'Errores de validación',
+      errors: validationErrors
+    }, 422);
   }
-
-  if (err.name === 'CastError') {
-    return error(res, 'Recurso no encontrado', 404);
+  
+  // Error de sintaxis JSON
+  if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+    return error(res, 'JSON inválido en la solicitud', 400);
   }
-
-  if (err.code === 11000) {
-    return error(res, 'Entrada duplicada', 409);
-  }
-
-  // Verificar si es un error de JWT
+  
+  // Error de autenticación (token inválido)
   if (err.name === 'JsonWebTokenError') {
     return error(res, 'Token inválido', 401);
   }
-
+  
+  // Error de autenticación (token expirado)
   if (err.name === 'TokenExpiredError') {
     return error(res, 'Token expirado', 401);
   }
-
-  // Verificar si el error ya tiene un código de estado definido
+  
+  // Si el error tiene un código de estado definido, usarlo
   const statusCode = err.statusCode || 500;
+  const message = err.message || 'Error interno del servidor';
+  
+  // Para errores 500, dar un mensaje genérico en producción
+  if (statusCode === 500 && process.env.NODE_ENV === 'production') {
+    return error(res, 'Error interno del servidor', 500);
+  }
   
   // Enviar respuesta de error
-  return error(
-    res,
-    err.message || 'Error interno del servidor',
-    statusCode
-  );
-};
-
-/**
- * Formatea errores de validación de Mongoose
- * @param {Object} err - Error de validación de Mongoose
- * @returns {String} - Mensaje de error formateado
- */
-const formatValidationError = (err) => {
-  const errors = Object.values(err.errors).map(error => error.message);
-  return errors.join(', ');
+  return error(res, message, statusCode);
 };
 
 module.exports = errorHandler;

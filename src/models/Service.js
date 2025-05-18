@@ -1,166 +1,182 @@
 /**
  * Service.js
- * Modelo para servicios ofrecidos en la plataforma
+ * Modelo para servicios
  */
 
-const mongoose = require('mongoose');
 const { PRICE_TYPES } = require('../config/constants');
 
-const serviceSchema = new mongoose.Schema({
-  // Título del servicio
-  title: {
-    type: String,
-    required: [true, 'El título del servicio es obligatorio'],
-    trim: true,
-    maxlength: [100, 'El título no puede tener más de 100 caracteres']
-  },
-  
-  // Descripción detallada del servicio
-  description: {
-    type: String,
-    required: [true, 'La descripción del servicio es obligatoria'],
-    trim: true,
-    maxlength: [2000, 'La descripción no puede tener más de 2000 caracteres']
-  },
-  
-  // Categoría a la que pertenece el servicio
-  category: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Category',
-    required: [true, 'La categoría es obligatoria']
-  },
-  
-  // Usuario que ofrece el servicio
-  provider: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: [true, 'El proveedor es obligatorio']
-  },
-  
-  // Precio base del servicio
-  price: {
-    type: Number,
-    required: [true, 'El precio es obligatorio'],
-    min: [0, 'El precio no puede ser negativo']
-  },
-  
-  // Tipo de precio (fijo, por hora, negociable)
-  priceType: {
-    type: String,
-    enum: Object.values(PRICE_TYPES),
-    default: PRICE_TYPES.FIXED
-  },
-  
-  // Token utilizado para el pago
-  token: {
-    type: String,
-    default: 'WLD'
-  },
-  
-  // Tiempo estimado de entrega (en días)
-  deliveryTime: {
-    type: Number,
-    min: [0, 'El tiempo de entrega no puede ser negativo']
-  },
-  
-  // Imágenes o capturas del servicio (URLs)
-  images: [{
-    type: String
-  }],
-  
-  // Etiquetas o palabras clave
-  tags: [{
-    type: String,
-    trim: true
-  }],
-  
-  // Calificación promedio del servicio
-  rating: {
-    type: Number,
-    default: 0,
-    min: 0,
-    max: 5
-  },
-  
-  // Número de valoraciones recibidas
-  ratingCount: {
-    type: Number,
-    default: 0
-  },
-  
-  // Número de ventas/contrataciones
-  sales: {
-    type: Number,
-    default: 0
-  },
-  
-  // Estado del servicio (activo/inactivo)
-  active: {
-    type: Boolean,
-    default: true
-  },
-  
-  // Fecha de creación
-  createdAt: {
-    type: Date,
-    default: Date.now
-  },
-  
-  // Fecha de última actualización
-  updatedAt: {
-    type: Date,
-    default: Date.now
+/**
+ * Clase que representa el modelo de servicio
+ */
+class Service {
+  /**
+   * Constructor del modelo de servicio
+   * @param {Object} data - Datos del servicio
+   */
+  constructor(data = {}) {
+    this.id = data.id || null;
+    this.title = data.title || '';
+    this.description = data.description || '';
+    this.category = data.category || null;
+    this.provider = data.provider || null;
+    this.price = data.price || 0;
+    this.priceType = data.priceType || PRICE_TYPES.FIXED;
+    this.token = data.token || 'WLD';
+    this.images = data.images || [];
+    this.contactInfo = data.contactInfo || null;
+    this.tags = data.tags || [];
+    this.keywords = data.keywords || [];
+    this.requirements = data.requirements || '';
+    this.deliveryTime = data.deliveryTime || null;
+    this.popular = data.popular || false;
+    this.views = data.views || 0;
+    this.sales = data.sales || 0;
+    this.rating = data.rating || 0;
+    this.ratingCount = data.ratingCount || 0;
+    this.active = data.active !== false; // true por defecto
+    this.createdAt = data.createdAt || new Date().toISOString();
+    this.updatedAt = data.updatedAt || new Date().toISOString();
   }
-});
 
-// Índices para búsquedas eficientes
-serviceSchema.index({ title: 'text', description: 'text', tags: 'text' });
-serviceSchema.index({ category: 1 });
-serviceSchema.index({ provider: 1 });
-serviceSchema.index({ price: 1 });
-serviceSchema.index({ createdAt: -1 });
+  /**
+   * Valida los datos del servicio
+   * @returns {Object} Resultado de la validación
+   */
+  validate() {
+    const errors = [];
 
-// Middleware pre-save para actualizar timestamp
-serviceSchema.pre('save', function(next) {
-  this.updatedAt = Date.now();
-  next();
-});
+    if (!this.title) {
+      errors.push('El título del servicio es obligatorio');
+    }
 
-// Middleware para poblar referencias automáticamente
-serviceSchema.pre(/^find/, function(next) {
-  this.populate({
-    path: 'provider',
-    select: 'name avatar rating walletAddress'
-  }).populate({
-    path: 'category',
-    select: 'name slug'
-  });
-  
-  next();
-});
+    if (this.title && this.title.length > 100) {
+      errors.push('El título no puede tener más de 100 caracteres');
+    }
 
-// Método para formato público
-serviceSchema.methods.toPublic = function() {
-  return {
-    id: this._id,
-    title: this.title,
-    description: this.description,
-    category: this.category,
-    provider: this.provider,
-    price: this.price,
-    priceType: this.priceType,
-    token: this.token,
-    deliveryTime: this.deliveryTime,
-    images: this.images,
-    tags: this.tags,
-    rating: this.rating,
-    ratingCount: this.ratingCount,
-    sales: this.sales,
-    createdAt: this.createdAt
-  };
-};
+    if (!this.description) {
+      errors.push('La descripción del servicio es obligatoria');
+    }
 
-// Crear y exportar el modelo
-const Service = mongoose.model('Service', serviceSchema);
+    if (this.description && this.description.length > 2000) {
+      errors.push('La descripción no puede tener más de 2000 caracteres');
+    }
+
+    if (!this.category) {
+      errors.push('La categoría es obligatoria');
+    }
+
+    if (!this.provider) {
+      errors.push('El proveedor es obligatorio');
+    }
+
+    if (typeof this.price !== 'number' || this.price < 0) {
+      errors.push('El precio debe ser un número no negativo');
+    }
+
+    if (!Object.values(PRICE_TYPES).includes(this.priceType)) {
+      errors.push(`Tipo de precio inválido: ${this.priceType}`);
+    }
+
+    return {
+      valid: errors.length === 0,
+      errors
+    };
+  }
+
+  /**
+   * Convierte la instancia a un objeto simple
+   * @returns {Object} Representación del objeto
+   */
+  toJSON() {
+    return {
+      id: this.id,
+      title: this.title,
+      description: this.description,
+      category: this.category,
+      provider: this.provider,
+      price: this.price,
+      priceType: this.priceType,
+      token: this.token,
+      images: this.images,
+      contactInfo: this.contactInfo,
+      tags: this.tags,
+      keywords: this.keywords,
+      requirements: this.requirements,
+      deliveryTime: this.deliveryTime,
+      popular: this.popular,
+      views: this.views,
+      sales: this.sales,
+      rating: this.rating,
+      ratingCount: this.ratingCount,
+      active: this.active,
+      createdAt: this.createdAt,
+      updatedAt: this.updatedAt
+    };
+  }
+
+  /**
+   * Obtiene la representación pública del servicio
+   * @param {boolean} includeContactInfo - Si se debe incluir la información de contacto
+   * @returns {Object} Representación pública
+   */
+  toPublic(includeContactInfo = false) {
+    const publicData = {
+      id: this.id,
+      title: this.title,
+      description: this.description,
+      category: this.category, // Esto se populará con la info real en el controlador
+      provider: this.provider, // Esto se populará con la info real en el controlador
+      price: this.price,
+      priceType: this.priceType,
+      token: this.token,
+      images: this.images,
+      tags: this.tags,
+      requirements: this.requirements,
+      deliveryTime: this.deliveryTime,
+      rating: this.rating,
+      ratingCount: this.ratingCount,
+      createdAt: this.createdAt
+    };
+
+    // Solo incluir información de contacto si se solicita explícitamente
+    // Esta información solo debería ser accesible después de pagar
+    if (includeContactInfo && this.contactInfo) {
+      publicData.contactInfo = this.contactInfo;
+    }
+
+    return publicData;
+  }
+
+  /**
+   * Incrementa el contador de vistas
+   */
+  incrementViews() {
+    this.views += 1;
+    this.updatedAt = new Date().toISOString();
+  }
+
+  /**
+   * Incrementa el contador de ventas
+   */
+  incrementSales() {
+    this.sales += 1;
+    this.updatedAt = new Date().toISOString();
+  }
+
+  /**
+   * Añade una nueva valoración
+   * @param {number} rating - Valoración (1-5)
+   */
+  addRating(rating) {
+    if (rating < 1 || rating > 5) {
+      throw new Error('La valoración debe estar entre 1 y 5');
+    }
+
+    const totalRating = this.rating * this.ratingCount + rating;
+    this.ratingCount += 1;
+    this.rating = totalRating / this.ratingCount;
+    this.updatedAt = new Date().toISOString();
+  }
+}
 
 module.exports = Service;

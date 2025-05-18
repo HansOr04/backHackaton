@@ -1,111 +1,155 @@
 /**
  * User.js
- * Modelo de usuario para la aplicación
+ * Modelo para usuarios
  */
 
-const mongoose = require('mongoose');
 const { VERIFICATION_LEVELS } = require('../config/constants');
 
-const userSchema = new mongoose.Schema({
-  // Dirección de wallet Ethereum (utilizada para autenticación con World ID)
-  walletAddress: {
-    type: String,
-    required: true,
-    unique: true,
-    lowercase: true,
-    trim: true
-  },
-  
-  // Nombre de usuario en World (opcional)
-  worldUsername: {
-    type: String,
-    trim: true
-  },
-  
-  // Nombre público del usuario
-  name: {
-    type: String,
-    trim: true
-  },
-  
-  // Biografía o descripción del usuario
-  bio: {
-    type: String,
-    trim: true
-  },
-  
-  // Avatar o imagen de perfil (URL)
-  avatar: {
-    type: String
-  },
-  
-  // Nivel de verificación con World ID
-  verificationLevel: {
-    type: String,
-    enum: Object.values(VERIFICATION_LEVELS),
-    default: VERIFICATION_LEVELS.DEVICE
-  },
-  
-  // Habilidades o especialidades del usuario
-  skills: [{
-    type: String,
-    trim: true
-  }],
-  
-  // Calificación promedio (de 0 a 5)
-  rating: {
-    type: Number,
-    default: 0,
-    min: 0,
-    max: 5
-  },
-  
-  // Número total de trabajos completados
-  completedJobs: {
-    type: Number,
-    default: 0
-  },
-  
-  // Estado del usuario (activo/inactivo)
-  isActive: {
-    type: Boolean,
-    default: true
-  },
-  
-  // Fechas de creación y actualización
-  createdAt: {
-    type: Date,
-    default: Date.now
-  },
-  updatedAt: {
-    type: Date,
-    default: Date.now
+/**
+ * Clase que representa el modelo de usuario
+ */
+class User {
+  /**
+   * Constructor del modelo de usuario
+   * @param {Object} data - Datos del usuario
+   */
+  constructor(data = {}) {
+    this.id = data.id || null;
+    this.walletAddress = data.walletAddress ? data.walletAddress.toLowerCase() : null;
+    this.name = data.name || '';
+    this.worldUsername = data.worldUsername || null;
+    this.avatar = data.avatar || null;
+    this.bio = data.bio || '';
+    this.verificationLevel = data.verificationLevel || VERIFICATION_LEVELS.DEVICE;
+    this.walletAuthorized = data.walletAuthorized || false;
+    this.isProvider = data.isProvider || false;
+    this.skills = data.skills || [];
+    this.rating = data.rating || 0;
+    this.ratingCount = data.ratingCount || 0;
+    this.completedJobs = data.completedJobs || 0;
+    this.isActive = data.isActive !== false; // true por defecto
+    this.isAdmin = data.isAdmin || false;
+    this.createdAt = data.createdAt || new Date().toISOString();
+    this.updatedAt = data.updatedAt || new Date().toISOString();
   }
-});
 
-// Middleware pre-save para actualizar el campo updatedAt
-userSchema.pre('save', function(next) {
-  this.updatedAt = Date.now();
-  next();
-});
+  /**
+   * Valida los datos del usuario
+   * @returns {Object} Resultado de la validación
+   */
+  validate() {
+    const errors = [];
 
-// Método para generar el perfil público del usuario
-userSchema.methods.getPublicProfile = function() {
-  return {
-    id: this._id,
-    walletAddress: this.walletAddress,
-    worldUsername: this.worldUsername,
-    name: this.name,
-    bio: this.bio,
-    avatar: this.avatar,
-    verificationLevel: this.verificationLevel,
-    skills: this.skills,
-    rating: this.rating,
-    completedJobs: this.completedJobs
-  };
-};
+    if (!this.walletAddress) {
+      errors.push('La dirección de wallet es obligatoria');
+    }
 
-// Crear y exportar el modelo
-const User = mongoose.model('User', userSchema);
+    if (this.walletAddress && !/^0x[a-fA-F0-9]{40}$/.test(this.walletAddress)) {
+      errors.push('La dirección de wallet debe tener formato Ethereum válido');
+    }
+
+    if (this.name && this.name.length > 50) {
+      errors.push('El nombre no puede tener más de 50 caracteres');
+    }
+
+    if (this.bio && this.bio.length > 500) {
+      errors.push('La biografía no puede tener más de 500 caracteres');
+    }
+
+    if (!Object.values(VERIFICATION_LEVELS).includes(this.verificationLevel)) {
+      errors.push(`Nivel de verificación inválido: ${this.verificationLevel}`);
+    }
+
+    return {
+      valid: errors.length === 0,
+      errors
+    };
+  }
+
+  /**
+   * Convierte la instancia a un objeto simple
+   * @returns {Object} Representación del objeto
+   */
+  toJSON() {
+    return {
+      id: this.id,
+      walletAddress: this.walletAddress,
+      name: this.name,
+      worldUsername: this.worldUsername,
+      avatar: this.avatar,
+      bio: this.bio,
+      verificationLevel: this.verificationLevel,
+      walletAuthorized: this.walletAuthorized,
+      isProvider: this.isProvider,
+      skills: this.skills,
+      rating: this.rating,
+      ratingCount: this.ratingCount,
+      completedJobs: this.completedJobs,
+      isActive: this.isActive,
+      isAdmin: this.isAdmin,
+      createdAt: this.createdAt,
+      updatedAt: this.updatedAt
+    };
+  }
+
+  /**
+   * Obtiene la representación pública del usuario
+   * @returns {Object} Representación pública
+   */
+  getPublicProfile() {
+    return {
+      id: this.id,
+      walletAddress: this.walletAddress,
+      name: this.name,
+      worldUsername: this.worldUsername,
+      avatar: this.avatar,
+      bio: this.bio,
+      verificationLevel: this.verificationLevel,
+      isProvider: this.isProvider,
+      skills: this.skills,
+      rating: this.rating,
+      ratingCount: this.ratingCount,
+      completedJobs: this.completedJobs
+    };
+  }
+
+  /**
+   * Verifica si el usuario tiene un nivel de verificación mínimo
+   * @param {string} requiredLevel - Nivel requerido
+   * @returns {boolean} Si cumple con el nivel requerido
+   */
+  hasVerificationLevel(requiredLevel) {
+    const levelPriority = {
+      [VERIFICATION_LEVELS.DEVICE]: 1,
+      [VERIFICATION_LEVELS.PHONE]: 2,
+      [VERIFICATION_LEVELS.ORB]: 3
+    };
+
+    return levelPriority[this.verificationLevel] >= levelPriority[requiredLevel];
+  }
+
+  /**
+   * Añade una nueva valoración
+   * @param {number} rating - Valoración (1-5)
+   */
+  addRating(rating) {
+    if (rating < 1 || rating > 5) {
+      throw new Error('La valoración debe estar entre 1 y 5');
+    }
+
+    const totalRating = this.rating * this.ratingCount + rating;
+    this.ratingCount += 1;
+    this.rating = totalRating / this.ratingCount;
+    this.updatedAt = new Date().toISOString();
+  }
+
+  /**
+   * Incrementa el contador de trabajos completados
+   */
+  incrementCompletedJobs() {
+    this.completedJobs += 1;
+    this.updatedAt = new Date().toISOString();
+  }
+}
 
 module.exports = User;
