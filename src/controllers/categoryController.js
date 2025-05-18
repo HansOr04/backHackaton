@@ -4,7 +4,7 @@
  */
 
 const asyncHandler = require('../utils/asyncHandler');
-const jsonStore = require('../utils/jsonStore');
+const { searchAllJson } = require('../utils/allJsonSearch');
 const { success, error, paginated } = require('../utils/responseFormatter');
 const { PAGINATION } = require('../config/constants');
 
@@ -12,7 +12,22 @@ const { PAGINATION } = require('../config/constants');
  * Obtiene todas las categorías activas ordenadas
  */
 exports.getAllCategories = asyncHandler(async (req, res) => {
-  const categories = await jsonStore.find('categories');
+  const categories = await searchAllJson();
+  const activeCategories = categories
+    .filter(cat => cat.active !== false)
+    .sort((a, b) => a.order - b.order);
+
+  return success(res, activeCategories);
+});
+
+/**
+ * Busca categorías por término de búsqueda
+ */
+exports.searchCategories = asyncHandler(async (req, res) => {
+  const { query } = req.query;
+  if (!query) return error(res, 'Se requiere un término de búsqueda', 400);
+
+  const categories = await searchAllJson('data', query);
   const activeCategories = categories
     .filter(cat => cat.active !== false)
     .sort((a, b) => a.order - b.order);
