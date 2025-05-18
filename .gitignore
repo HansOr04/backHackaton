@@ -3,8 +3,6 @@
 /.pnp
 .pnp.js
 
-# Datos locales
-/data
 
 # Testing
 /coverage

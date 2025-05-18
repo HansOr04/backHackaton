@@ -1,0 +1,1106 @@
+[
+  {
+    "id": "a427a9693cb49ee6d84c0a40",
+    "name": "Web Development",
+    "slug": "web-development",
+    "description": "Servicios relacionados con web development",
+    "icon": "🌐",
+    "order": 0,
+    "active": true,
+    "popular": true,
+    "keywords": [
+      "web development",
+      "web",
+      "development",
+      "servicio de web development",
+      "web development profesional",
+      "contratar web development",
+      "página web",
+      "sitio web",
+      "desarrollo web",
+      "crear web",
+      "programación web"
+    ],
+    "createdAt": "2025-05-18T15:35:45.488Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "afec3fb2552876643471c8af",
+    "name": "Software Architecture",
+    "slug": "software-architecture",
+    "description": "Servicios relacionados con software architecture",
+    "icon": "🏗️",
+    "order": 1,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "software architecture",
+      "software",
+      "architecture",
+      "servicio de software architecture",
+      "software architecture profesional",
+      "contratar software architecture"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "b9b53dc5f3d0c8e97e3303f6",
+    "name": "Mobile App Development",
+    "slug": "mobile-app-development",
+    "description": "Servicios relacionados con mobile app development",
+    "icon": "📱",
+    "order": 2,
+    "active": true,
+    "popular": true,
+    "keywords": [
+      "mobile app development",
+      "mobile",
+      "app",
+      "development",
+      "servicio de mobile app development",
+      "mobile app development profesional",
+      "contratar mobile app development",
+      "app",
+      "aplicación móvil",
+      "desarrollo app",
+      "programar app"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "b02d36d618a673efe7952469",
+    "name": "Android",
+    "slug": "android",
+    "description": "Servicios relacionados con android",
+    "icon": "🤖",
+    "order": 3,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "android",
+      "android",
+      "servicio de android",
+      "android profesional",
+      "contratar android"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "900465925d92aabf8f0b47e5",
+    "name": "Ios Development",
+    "slug": "ios-development",
+    "description": "Servicios relacionados con ios development",
+    "icon": "🍎",
+    "order": 4,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "ios development",
+      "ios",
+      "development",
+      "servicio de ios development",
+      "ios development profesional",
+      "contratar ios development"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "510621e48dbf756189cab704",
+    "name": "Machine Learning",
+    "slug": "machine-learning",
+    "description": "Servicios relacionados con machine learning",
+    "icon": "🧠",
+    "order": 5,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "machine learning",
+      "machine",
+      "learning",
+      "servicio de machine learning",
+      "machine learning profesional",
+      "contratar machine learning"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "9fb3d63ecd448839ff1bc97e",
+    "name": "Desktop App",
+    "slug": "desktop-app",
+    "description": "Servicios relacionados con desktop app",
+    "icon": "💻",
+    "order": 6,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "desktop app",
+      "desktop",
+      "app",
+      "servicio de desktop app",
+      "desktop app profesional",
+      "contratar desktop app"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "45e1f359e6de337509a69143",
+    "name": "Game Development",
+    "slug": "game-development",
+    "description": "Servicios relacionados con game development",
+    "icon": "🎮",
+    "order": 7,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "game development",
+      "game",
+      "development",
+      "servicio de game development",
+      "game development profesional",
+      "contratar game development"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "cf768367bfc8e53095785c57",
+    "name": "Api",
+    "slug": "api",
+    "description": "Servicios relacionados con api",
+    "icon": "🔌",
+    "order": 8,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "api",
+      "api",
+      "servicio de api",
+      "api profesional",
+      "contratar api"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "77b9d269a173dc46ceaaa931",
+    "name": "Database Development",
+    "slug": "database-development",
+    "description": "Servicios relacionados con database development",
+    "icon": "🗄️",
+    "order": 9,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "database development",
+      "database",
+      "development",
+      "servicio de database development",
+      "database development profesional",
+      "contratar database development"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "db390868acd95aff33f2cb0b",
+    "name": "Web Scraping",
+    "slug": "web-scraping",
+    "description": "Servicios relacionados con web scraping",
+    "icon": "🕸️",
+    "order": 10,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "web scraping",
+      "web",
+      "scraping",
+      "servicio de web scraping",
+      "web scraping profesional",
+      "contratar web scraping"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "b8d6b2a1dd0d887679e97af7",
+    "name": "Article Writing",
+    "slug": "article-writing",
+    "description": "Servicios relacionados con article writing",
+    "icon": "📝",
+    "order": 11,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "article writing",
+      "article",
+      "writing",
+      "servicio de article writing",
+      "article writing profesional",
+      "contratar article writing"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "a3d95d79e819df46a8faf4c4",
+    "name": "Content Writing",
+    "slug": "content-writing",
+    "description": "Servicios relacionados con content writing",
+    "icon": "✍️",
+    "order": 12,
+    "active": true,
+    "popular": true,
+    "keywords": [
+      "content writing",
+      "content",
+      "writing",
+      "servicio de content writing",
+      "content writing profesional",
+      "contratar content writing",
+      "redacción",
+      "contenido",
+      "blog",
+      "artículos",
+      "escribir"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "fc4824a3e9e4170d65a8f98e",
+    "name": "Ghostwriting",
+    "slug": "ghostwriting",
+    "description": "Servicios relacionados con ghostwriting",
+    "icon": "👻",
+    "order": 13,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "ghostwriting",
+      "ghostwriting",
+      "servicio de ghostwriting",
+      "ghostwriting profesional",
+      "contratar ghostwriting"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "d97bb94430e99bec39ef1fe1",
+    "name": "Copywriting",
+    "slug": "copywriting",
+    "description": "Servicios relacionados con copywriting",
+    "icon": "📣",
+    "order": 14,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "copywriting",
+      "copywriting",
+      "servicio de copywriting",
+      "copywriting profesional",
+      "contratar copywriting"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "e2ab1a54ffccedc2d315d617",
+    "name": "Research Writing",
+    "slug": "research-writing",
+    "description": "Servicios relacionados con research writing",
+    "icon": "🔍",
+    "order": 15,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "research writing",
+      "research",
+      "writing",
+      "servicio de research writing",
+      "research writing profesional",
+      "contratar research writing"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "d7f12d453700ed6416b6469f",
+    "name": "Graphic Design",
+    "slug": "graphic-design",
+    "description": "Servicios relacionados con graphic design",
+    "icon": "🎨",
+    "order": 16,
+    "active": true,
+    "popular": true,
+    "keywords": [
+      "graphic design",
+      "graphic",
+      "design",
+      "servicio de graphic design",
+      "graphic design profesional",
+      "contratar graphic design",
+      "diseño",
+      "logo",
+      "identidad visual",
+      "branding"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "bb8d86732b176fb6a16b7668",
+    "name": "Logo Design",
+    "slug": "logo-design",
+    "description": "Servicios relacionados con logo design",
+    "icon": "⭐",
+    "order": 17,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "logo design",
+      "logo",
+      "design",
+      "servicio de logo design",
+      "logo design profesional",
+      "contratar logo design"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "a2a92871bd26be39c6306d81",
+    "name": "Photoshop",
+    "slug": "photoshop",
+    "description": "Servicios relacionados con photoshop",
+    "icon": "📷",
+    "order": 18,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "photoshop",
+      "photoshop",
+      "servicio de photoshop",
+      "photoshop profesional",
+      "contratar photoshop"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "98a984823b1950a71b9bc091",
+    "name": "Illustrator",
+    "slug": "illustrator",
+    "description": "Servicios relacionados con illustrator",
+    "icon": "🖌️",
+    "order": 19,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "illustrator",
+      "illustrator",
+      "servicio de illustrator",
+      "illustrator profesional",
+      "contratar illustrator"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "eb6f930683043708d29d93d5",
+    "name": "User Interface Ia",
+    "slug": "user-interface-ia",
+    "description": "Servicios relacionados con user interface ia",
+    "icon": "📱",
+    "order": 20,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "user interface ia",
+      "user",
+      "interface",
+      "ia",
+      "servicio de user interface ia",
+      "user interface ia profesional",
+      "contratar user interface ia"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "771240ce16ed925e5da9aa18",
+    "name": "Website Design",
+    "slug": "website-design",
+    "description": "Servicios relacionados con website design",
+    "icon": "🖥️",
+    "order": 21,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "website design",
+      "website",
+      "design",
+      "servicio de website design",
+      "website design profesional",
+      "contratar website design"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "13808a394a741b00cb7aa1b1",
+    "name": "Data Entry",
+    "slug": "data-entry",
+    "description": "Servicios relacionados con data entry",
+    "icon": "📊",
+    "order": 22,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "data entry",
+      "data",
+      "entry",
+      "servicio de data entry",
+      "data entry profesional",
+      "contratar data entry"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "dfd0cf4ad426493ad3cf9a15",
+    "name": "Virtual Assistant",
+    "slug": "virtual-assistant",
+    "description": "Servicios relacionados con virtual assistant",
+    "icon": "👩‍💼",
+    "order": 23,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "virtual assistant",
+      "virtual",
+      "assistant",
+      "servicio de virtual assistant",
+      "virtual assistant profesional",
+      "contratar virtual assistant"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "edcd82047bca57178827d7ad",
+    "name": "Customer Support",
+    "slug": "customer-support",
+    "description": "Servicios relacionados con customer support",
+    "icon": "🎧",
+    "order": 24,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "customer support",
+      "customer",
+      "support",
+      "servicio de customer support",
+      "customer support profesional",
+      "contratar customer support"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "46ee296db3130612d503a92b",
+    "name": "Excel",
+    "slug": "excel",
+    "description": "Servicios relacionados con excel",
+    "icon": "📊",
+    "order": 25,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "excel",
+      "excel",
+      "servicio de excel",
+      "excel profesional",
+      "contratar excel"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "5f79c9b06bca8cd0e2a365bc",
+    "name": "Web Search",
+    "slug": "web-search",
+    "description": "Servicios relacionados con web search",
+    "icon": "🔎",
+    "order": 26,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "web search",
+      "web",
+      "search",
+      "servicio de web search",
+      "web search profesional",
+      "contratar web search"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "93511b591d43475e1be0282a",
+    "name": "Engineering",
+    "slug": "engineering",
+    "description": "Servicios relacionados con engineering",
+    "icon": "⚙️",
+    "order": 27,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "engineering",
+      "engineering",
+      "servicio de engineering",
+      "engineering profesional",
+      "contratar engineering"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "fdfee067e84ca9abb99a2c51",
+    "name": "Electrical Engineering",
+    "slug": "electrical-engineering",
+    "description": "Servicios relacionados con electrical engineering",
+    "icon": "⚡",
+    "order": 28,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "electrical engineering",
+      "electrical",
+      "engineering",
+      "servicio de electrical engineering",
+      "electrical engineering profesional",
+      "contratar electrical engineering"
+    ],
+    "createdAt": "2025-05-18T15:35:45.489Z",
+    "updatedAt": "2025-05-18T15:35:45.489Z"
+  },
+  {
+    "id": "024089065e33291819338815",
+    "name": "Electronics",
+    "slug": "electronics",
+    "description": "Servicios relacionados con electronics",
+    "icon": "🔌",
+    "order": 29,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "electronics",
+      "electronics",
+      "servicio de electronics",
+      "electronics profesional",
+      "contratar electronics"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "f898fc03e35649cb2518e013",
+    "name": "Mechanical Engineering",
+    "slug": "mechanical-engineering",
+    "description": "Servicios relacionados con mechanical engineering",
+    "icon": "🔧",
+    "order": 30,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "mechanical engineering",
+      "mechanical",
+      "engineering",
+      "servicio de mechanical engineering",
+      "mechanical engineering profesional",
+      "contratar mechanical engineering"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "3248f84144ac8f50adb3e96a",
+    "name": "Cad Cam",
+    "slug": "cad-cam",
+    "description": "Servicios relacionados con cad cam",
+    "icon": "📐",
+    "order": 31,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "cad cam",
+      "cad",
+      "cam",
+      "servicio de cad cam",
+      "cad cam profesional",
+      "contratar cad cam"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "af0f46e814ba57cebce5a3f4",
+    "name": "Product Design",
+    "slug": "product-design",
+    "description": "Servicios relacionados con product design",
+    "icon": "🏭",
+    "order": 32,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "product design",
+      "product",
+      "design",
+      "servicio de product design",
+      "product design profesional",
+      "contratar product design"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "de22be6589c008d8a0088eb1",
+    "name": "Accounting",
+    "slug": "accounting",
+    "description": "Servicios relacionados con accounting",
+    "icon": "💰",
+    "order": 33,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "accounting",
+      "accounting",
+      "servicio de accounting",
+      "accounting profesional",
+      "contratar accounting"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "b99604ed796a16bee09d6974",
+    "name": "Finance",
+    "slug": "finance",
+    "description": "Servicios relacionados con finance",
+    "icon": "📈",
+    "order": 34,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "finance",
+      "finance",
+      "servicio de finance",
+      "finance profesional",
+      "contratar finance"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "8797c31a3efc55cac76a8714",
+    "name": "Business Analysis",
+    "slug": "business-analysis",
+    "description": "Servicios relacionados con business analysis",
+    "icon": "📊",
+    "order": 35,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "business analysis",
+      "business",
+      "analysis",
+      "servicio de business analysis",
+      "business analysis profesional",
+      "contratar business analysis"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "cfafa63a48f13e37762b7ef3",
+    "name": "Project Management",
+    "slug": "project-management",
+    "description": "Servicios relacionados con project management",
+    "icon": "📋",
+    "order": 36,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "project management",
+      "project",
+      "management",
+      "servicio de project management",
+      "project management profesional",
+      "contratar project management"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "ffb581be16ef1585fd1569ce",
+    "name": "Human Resources",
+    "slug": "human-resources",
+    "description": "Servicios relacionados con human resources",
+    "icon": "👥",
+    "order": 37,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "human resources",
+      "human",
+      "resources",
+      "servicio de human resources",
+      "human resources profesional",
+      "contratar human resources"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "309a8386c9cc34de433798c9",
+    "name": "Legal",
+    "slug": "legal",
+    "description": "Servicios relacionados con legal",
+    "icon": "⚖️",
+    "order": 38,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "legal",
+      "legal",
+      "servicio de legal",
+      "legal profesional",
+      "contratar legal"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "01b342cf9469bf4520e83e97",
+    "name": "Internet Marketing",
+    "slug": "internet-marketing",
+    "description": "Servicios relacionados con internet marketing",
+    "icon": "📣",
+    "order": 39,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "internet marketing",
+      "internet",
+      "marketing",
+      "servicio de internet marketing",
+      "internet marketing profesional",
+      "contratar internet marketing"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "71ba83d47c5a86e646903059",
+    "name": "Seo",
+    "slug": "seo",
+    "description": "Servicios relacionados con seo",
+    "icon": "🔍",
+    "order": 40,
+    "active": true,
+    "popular": true,
+    "keywords": [
+      "seo",
+      "seo",
+      "servicio de seo",
+      "seo profesional",
+      "contratar seo"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "e647d7d96e6097131ad846a4",
+    "name": "Facebook Marketing",
+    "slug": "facebook-marketing",
+    "description": "Servicios relacionados con facebook marketing",
+    "icon": "👍",
+    "order": 41,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "facebook marketing",
+      "facebook",
+      "marketing",
+      "servicio de facebook marketing",
+      "facebook marketing profesional",
+      "contratar facebook marketing"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "496fc6953e2881d10b60543a",
+    "name": "Social Media Marketing",
+    "slug": "social-media-marketing",
+    "description": "Servicios relacionados con social media marketing",
+    "icon": "📱",
+    "order": 42,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "social media marketing",
+      "social",
+      "media",
+      "marketing",
+      "servicio de social media marketing",
+      "social media marketing profesional",
+      "contratar social media marketing"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "f962d4f40393af1c57c19226",
+    "name": "Sales",
+    "slug": "sales",
+    "description": "Servicios relacionados con sales",
+    "icon": "💼",
+    "order": 43,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "sales",
+      "sales",
+      "servicio de sales",
+      "sales profesional",
+      "contratar sales"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "937e0129dde350adaad92f78",
+    "name": "Translation",
+    "slug": "translation",
+    "description": "Servicios relacionados con translation",
+    "icon": "🌍",
+    "order": 44,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "translation",
+      "translation",
+      "servicio de translation",
+      "translation profesional",
+      "contratar translation"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "b0fe1720770e117391ea5146",
+    "name": "English Uk Translator",
+    "slug": "english-uk-translator",
+    "description": "Servicios relacionados con english uk translator",
+    "icon": "🇬🇧",
+    "order": 45,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "english uk translator",
+      "english",
+      "uk",
+      "translator",
+      "servicio de english uk translator",
+      "english uk translator profesional",
+      "contratar english uk translator"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "f57752163f6bc647764e33da",
+    "name": "English Us Translator",
+    "slug": "english-us-translator",
+    "description": "Servicios relacionados con english us translator",
+    "icon": "🇺🇸",
+    "order": 46,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "english us translator",
+      "english",
+      "us",
+      "translator",
+      "servicio de english us translator",
+      "english us translator profesional",
+      "contratar english us translator"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "92c6852d532a4dc28032edc9",
+    "name": "Spanish Translator",
+    "slug": "spanish-translator",
+    "description": "Servicios relacionados con spanish translator",
+    "icon": "🇪🇸",
+    "order": 47,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "spanish translator",
+      "spanish",
+      "translator",
+      "servicio de spanish translator",
+      "spanish translator profesional",
+      "contratar spanish translator"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "286c30485001bf5fdf44846a",
+    "name": "French Translator",
+    "slug": "french-translator",
+    "description": "Servicios relacionados con french translator",
+    "icon": "🇫🇷",
+    "order": 48,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "french translator",
+      "french",
+      "translator",
+      "servicio de french translator",
+      "french translator profesional",
+      "contratar french translator"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "76fc699436d22078852448c8",
+    "name": "General Labor",
+    "slug": "general-labor",
+    "description": "Servicios relacionados con general labor",
+    "icon": "👷",
+    "order": 49,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "general labor",
+      "general",
+      "labor",
+      "servicio de general labor",
+      "general labor profesional",
+      "contratar general labor"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "2eae7b9a2ec6fb00d5c4f1a1",
+    "name": "Handyman",
+    "slug": "handyman",
+    "description": "Servicios relacionados con handyman",
+    "icon": "🔨",
+    "order": 50,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "handyman",
+      "handyman",
+      "servicio de handyman",
+      "handyman profesional",
+      "contratar handyman"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "60340875f84d424b84f1b483",
+    "name": "Education Tutoring",
+    "slug": "education-tutoring",
+    "description": "Servicios relacionados con education tutoring",
+    "icon": "📚",
+    "order": 51,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "education tutoring",
+      "education",
+      "tutoring",
+      "servicio de education tutoring",
+      "education tutoring profesional",
+      "contratar education tutoring"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "3cb3bdea655c79036727e540",
+    "name": "Psychology",
+    "slug": "psychology",
+    "description": "Servicios relacionados con psychology",
+    "icon": "🧠",
+    "order": 52,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "psychology",
+      "psychology",
+      "servicio de psychology",
+      "psychology profesional",
+      "contratar psychology"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "7ae67d1a1a0477e20abbbce9",
+    "name": "Nutrition",
+    "slug": "nutrition",
+    "description": "Servicios relacionados con nutrition",
+    "icon": "🥗",
+    "order": 53,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "nutrition",
+      "nutrition",
+      "servicio de nutrition",
+      "nutrition profesional",
+      "contratar nutrition"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  },
+  {
+    "id": "ec20202ceb340dc865d90cc8",
+    "name": "Health",
+    "slug": "health",
+    "description": "Servicios relacionados con health",
+    "icon": "🏥",
+    "order": 54,
+    "active": true,
+    "popular": false,
+    "keywords": [
+      "health",
+      "health",
+      "servicio de health",
+      "health profesional",
+      "contratar health"
+    ],
+    "createdAt": "2025-05-18T15:35:45.490Z",
+    "updatedAt": "2025-05-18T15:35:45.490Z"
+  }
+]
