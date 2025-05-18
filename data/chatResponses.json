@@ -1,0 +1,42 @@
+[
+  {
+    "id": "125d15efffb753728ba962fb",
+    "keywords": [
+      "hola",
+      "buenos dias",
+      "buenas tardes",
+      "saludos",
+      "hey"
+    ],
+    "text": "¡Hola! Soy el asistente virtual de Marketplace de Servicios. ¿En qué puedo ayudarte hoy?",
+    "suggestions": [
+      "Ver categorías populares",
+      "Buscar servicios",
+      "¿Cómo funciona?"
+    ],
+    "priority": 1,
+    "active": true,
+    "createdAt": "2025-05-18T03:22:36.755Z",
+    "updatedAt": "2025-05-18T03:22:36.755Z"
+  },
+  {
+    "id": "cf24c545faffc27a0dd213e8",
+    "keywords": [
+      "como funciona",
+      "explicar",
+      "plataforma",
+      "ayuda",
+      "info"
+    ],
+    "text": "Marketplace de Servicios conecta a clientes con proveedores de servicios. Puedes explorar categorías, buscar servicios específicos y contratar profesionales. Para ver detalles completos y contactar a un proveedor, debes desbloquear el servicio pagando con World Coin.",
+    "suggestions": [
+      "Ver categorías",
+      "Servicios populares",
+      "¿Cómo pagar?"
+    ],
+    "priority": 1,
+    "active": true,
+    "createdAt": "2025-05-18T03:22:36.755Z",
+    "updatedAt": "2025-05-18T03:22:36.755Z"
+  }
+]
